@@ -15,10 +15,10 @@
 
         <!-- Database connection settings -->
         <property name="connection.driver_class">com.mysql.jdbc.Driver</property>
-        <property name="connection.url">jdbc:mysql://<!-- TODO create a database and link it here --></property>
+        <property name="connection.url">jdbc:mysql://localhost:3306/example</property>
         <!-- TODO enter the credentials to your database -->
-        <property name="connection.username"></property>
-        <property name="connection.password"></property>
+        <property name="connection.username">beethekay</property>
+        <property name="connection.password">123456789</property>
 
         <!-- JDBC connection pool (use the built-in) -->
         <property name="connection.pool_size">1</property>
@@ -27,17 +27,18 @@
         <property name="dialect">org.hibernate.dialect.MySQL8Dialect</property>
 
         <!-- Disable the second-level cache  -->
-        <property name="cache.provider_class">org.hibernate.cache.internal.NoCacheProvider</property>
+        <property name="cache.provider_class">org.hibernate.cache.internal.NoCachingRegionFactory</property>
 
         <!-- Echo all executed SQL to stdout -->
         <property name="show_sql">true</property>
 
         <!-- Drop and re-create the database schema on startup-->
-        <property name="hbm2ddl.auto"><!-- TODO choose the fitting from the following: update / create / whyTho  --></property>
+        <property name="hbm2ddl.auto"><!-- TODO choose the fitting from the following: update / create / whyTho  -->create</property>
 
         <!-- Names the annotated entity class TODO add data models-->
 
-
+        <mapping class="ch.bissbert.hibernatebasics.data.Item" />
+        <mapping class="ch.bissbert.hibernatebasics.data.Cupboard" />
     </session-factory>
 
 </hibernate-configuration>

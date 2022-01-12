@@ -1,9 +1,6 @@
 package ch.bissbert.hibernatebasics.data;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.OneToMany;
+import javax.persistence.*;
 import java.util.List;
 
 /**
@@ -11,11 +8,17 @@ import java.util.List;
  * The id should be automatically incremented
  */
 @Entity
+@Table(name = "cupboard")
 public class Cupboard {
 
+    @Id
+    @Column(name = "id")
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
 
+    @OneToMany(mappedBy = "cupboard")
     private List<Item> items;
 
+    @Column(name = "name")
     private String name;
 }
